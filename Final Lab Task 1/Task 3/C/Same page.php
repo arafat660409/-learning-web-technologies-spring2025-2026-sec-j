@@ -1,4 +1,8 @@
 <?php
+    $dd = "";
+    $mm = "";
+    $yyyy = "";
+
     if(isset($_REQUEST['submit'])){
 
         $dd = $_REQUEST['dd'];
@@ -8,7 +12,7 @@
         if($dd == "" || $mm == "" || $yyyy == ""){
             echo "null input!";
         }else{
-            echo "Your DOB: ".$dd."/".$mm."/".$yyyy;
+            echo "Your DOB: ".$dd."/".$mm."/".$yyyy."<br><br>";
         }
     }
 ?>
@@ -23,14 +27,9 @@
 <form method="post" action="">
     DATE OF BIRTH <br><br>
 
-    <input type="text" name="dd" size="2"
-    value="<?php if(isset($_POST['dd'])){echo $dd;} ?>" /> /
-
-    <input type="text" name="mm" size="2"
-    value="<?php if(isset($_POST['mm'])){echo $mm;} ?>" /> /
-
-    <input type="text" name="yyyy" size="4"
-    value="<?php if(isset($_POST['yyyy'])){echo $yyyy;} ?>" />
+    <input type="text" name="dd" size="2" value="<?php echo $dd; ?>" /> /
+    <input type="text" name="mm" size="2" value="<?php echo $mm; ?>" /> /
+    <input type="text" name="yyyy" size="4" value="<?php echo $yyyy; ?>" />
 
     <br><br>
 
