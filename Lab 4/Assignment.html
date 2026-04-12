@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person Profile</title>
+</head>
+
+<body>
+    <h2>PERSON PROFILE</h2>
+
+    <form onsubmit="return validPerson()">
+
+        Name:<br>
+        <input type="text" id="name"><br><br>
+
+        Email:<br>
+        <input type="text" id="email"><br><br>
+
+        Gender:<br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <br><br>
+
+        Date of Birth:<br>
+        <input type="date" id="dob"><br><br>
+
+        Blood Group:<br>
+        <select id="blood">
+            <option value="">Select</option>
+            <option>A+</option>
+            <option>B+</option>
+            <option>O+</option>
+            <option>AB+</option>
+        </select>
+        <br><br>
+
+        Degree:<br>
+        <input type="checkbox" name="degree"> SSC
+        <input type="checkbox" name="degree"> HSC
+        <input type="checkbox" name="degree"> BSc
+        <input type="checkbox" name="degree"> MSc
+        <br><br>
+
+        Photo:<br>
+        <input type="file" id="photo"><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+    <script>
+        function validPerson() {
+
+            // Name validation
+            let name = document.getElementById("name").value.trim();
+            let nameRegex = /^[A-Za-z][A-Za-z.\-]*(\s+[A-Za-z.\-]+)+$/;
+
+            if (name === "") {
+                alert("Name cannot be empty");
+                return false;
+            }
+            if (!nameRegex.test(name)) {
+                alert("Enter a valid name");
+                return false;
+            }
+
+            // Email validation
+            let email = document.getElementById("email").value.trim();
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                alert("Email cannot be empty");
+                return false;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Enter a valid email");
+                return false;
+            }
+
+            // Gender validation
+            let gender = document.getElementsByName("gender");
+            let genderSelected = false;
+            for (let g of gender) {
+                if (g.checked) genderSelected = true;
+            }
+            if (!genderSelected) {
+                alert("Select gender");
+                return false;
+            }
+
+            // DOB validation
+            let dob = document.getElementById("dob").value;
+            if (dob === "") {
+                alert("Date of Birth cannot be empty");
+                return false;
+            }
+
+            // Blood group validation
+            let blood = document.getElementById("blood").value;
+            if (blood === "") {
+                alert("Select blood group");
+                return false;
+            }
+
+            // Degree validation
+            let degrees = document.getElementsByName("degree");
+            let degreeSelected = false;
+            for (let d of degrees) {
+                if (d.checked) degreeSelected = true;
+            }
+            if (!degreeSelected) {
+                alert("Select at least one degree");
+                return false;
+            }
+
+            // Photo validation
+            let photo = document.getElementById("photo").value;
+            if (photo === "") {
+                alert("Photo cannot be empty");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

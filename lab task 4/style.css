@@ -1,0 +1,17 @@
+body{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container{
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid gray;
+}
+
+input{
+    width: 200px;
+    padding: 8px;
+}
